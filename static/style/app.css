@@ -1,0 +1,398 @@
+/*
+  Global
+*/
+
+html {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: #fff;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+.hidden {
+  display: none !important;
+}
+
+/*
+  Main
+*/
+
+.site-container {
+  min-height: 100%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.site-wrapper {
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 300;
+  text-align: center;
+  display: block;
+  margin: 0;
+  line-height: 1.3em;
+  padding: 10px;
+  cursor: default;
+  background: #307fe2;
+  color: #fff;
+  border-radius: 30px;
+}
+
+h2 {
+  color: #000;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  margin: 1.5em 0 1em 0;
+  line-height: 1.5em;
+  cursor: default;
+}
+
+h3 {
+  margin: 0 0 2em 0;
+  font-size: 14px;
+  color: #888;
+  text-align: center;
+  font-style: italic;
+  cursor: default;
+}
+
+/*
+  Night mode
+*/
+
+.night-mode {
+  background: #000;
+}
+
+.night-mode .site-container {
+   -webkit-filter: invert(1) hue-rotate(180deg);
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/*
+  Player
+*/
+
+.player {
+  text-align: center;
+}
+
+.player .fa {
+  vertical-align: middle;
+  padding: 0;
+  cursor: pointer;
+  color: #307fe2;
+}
+
+.player .fa:hover {
+  color: #227ae6;
+}
+
+.player .play-pause {
+  font-size: 10em;
+}
+
+.player .fa.controls {
+  font-size: 1.5em;
+}
+
+.player .fa.next {
+  padding-left: 0.15em;
+}
+
+.player .fa.previous {
+  padding-right: 0.15em;
+}
+
+.player .fa.spinner {
+  position: absolute;
+  font-size: 20px;
+  top: calc(50% - 3px);
+  left: calc(50% - 13px);
+}
+
+.player .error-message {
+  background: red;
+  color: #fff;
+  border-radius: 999px;
+  padding: 10px;
+
+}
+
+.audiojs { 
+  display: none;
+}
+
+/*
+  Overlay
+*/
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 500;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  color: #fff;
+  text-align: center;
+  font-weight: 100;
+}
+
+.overlay .title {
+  color: #ccc;
+}
+
+.overlay .main {
+  font-size: 18px;
+  line-height: 40px;
+  margin-bottom: 18px;
+  color: #fff;
+  font-weight: 300;
+}
+
+.overlay .title:hover,
+.overlay .main:hover {
+  cursor: default;
+}
+
+.overlay-donate .fa-heart {
+  padding-left: 3px;
+}
+
+.overlay-donate .btn-donate-wrapper {
+  padding: 8px 9px;
+}
+
+.overlay-donate a.btn-donate {
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: #eee;
+  color: #000;
+  padding: 8px 9px;
+  font-weight: 300;
+  font-size: 15px;
+  border: 2px solid transparent;
+}
+
+.overlay-donate a.btn-donate:hover {
+  background-color: #fff;
+}
+
+.overlay-donate a.btn-donate:active {
+}
+
+.overlay-donate a.btn-donate .fa {
+  color: #307fe2;
+  padding-right: 9px;
+  padding-left: 4px;
+  margin-right: 4px;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.overlay-donate a.btn-donate:hover .fa {
+}
+
+/*
+  Track info
+*/
+
+.track-info {
+}
+
+.track-info .container {
+  max-width: 90%;
+}
+
+.track-info .now-playing {
+  color: #eee;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.track-info .track-title {
+  font-size: 23px;
+  margin-bottom: 20px;
+  cursor: default;
+}
+
+.track-info .artist {
+  font-weight: 300;
+  cursor: default;
+  font-size: 18px;
+}
+
+.track-info .permalink {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.track-info .permalink a {
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.track-info .permalink a:hover {
+  color: #fff;
+}
+
+/*
+  Channel picker
+*/
+
+.channel-picker {
+}
+
+.channel-picker .channel-picker-title {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.channel-picker .channel {
+  font-size: 20px;
+  width: 200px;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.channel-picker .channel:hover {
+  background: rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+}
+
+.channel-picker .channel:active,
+.channel-picker .channel.active {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.channel-picker .channel.rain {
+  margin-bottom: 0;
+}
+
+/*
+    Footer
+*/
+
+.footer {
+  color: #555;
+  font-weight: 300;
+  font-size: 15px;
+  cursor: default;
+  text-align: center;
+  margin-top: 2em;
+}
+
+.footer>div {
+  padding: 0;
+}
+
+.footer-controls {
+  width: 33%;
+  float: left;
+  text-align: center;
+}
+
+.footer-left {
+  float: left;
+  width: 50%;
+}
+
+.footer-right {
+  float: right;
+  width: 50%;
+}
+
+.footer-center {
+  margin-top: 0;
+}
+
+.footer .btn {
+  padding: 3px;
+  cursor: pointer;
+}
+
+.footer .btn-alexa {
+  font-size: 12px;
+}
+
+.footer .btn-worded {
+  color: #000;
+}
+
+.footer .btn-worded:hover {
+  text-decoration: underline;
+}
+
+.footer .btn:hover {
+  color: #000;
+}
+
+.footer a {
+  color: #555;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 769px) {
+  .volume {
+    visibility: hidden;
+  }
+}
+
+.footer .btn-volume-up,
+.footer .btn-volume-down {
+  display: inline-block;
+}
+
+.footer .btn-donate {
+  display: inline-block;
+  margin: 1em 0 1.25em 0;
+}
+
+.footer .fa {
+  color: #333;
+  width: 13px;
+}
+
+.footer a:hover .fa,
+.footer .btn:hover .fa {
+  color: #000;
+}

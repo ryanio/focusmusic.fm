@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <title>focusmusic.fm</title>
+    <meta name="description" content="music for work, productivity and flow." />
+
+    <!-- Normalize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" integrity="sha256-K3Njjl2oe0gjRteXwX01fQD5fkk9JFFBdUHy/h38ggY=" crossorigin="anonymous" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,300i" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+    <!-- app.css -->
+    <link rel="stylesheet" href="/static/style/app.css">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/static/images/icons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/static/images/icons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/static/images/icons/manifest.json">
+    <link rel="mask-icon" href="/static/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/static/images/icons/favicon.ico">
+    <meta name="msapplication-config" content="/static/images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- iOS -->
+    <meta name="apple-itunes-app" content="app-id=1170845754" />
+
+    <!-- Social -->
+    <meta property="og:title" content="focusmusic.fm">
+    <meta property="og:description" content="music for work, productivity and flow.">
+    <meta property="og:image" content="http://focusmusic.fm/static/images/thumbnail.png">
+    <meta property="og:url" content="http://focusmusic.fm">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:site_name" content="focusmusic.fm">
+    <meta name="twitter:image:alt" content="focusmusic.fm">
+    <meta name="twitter:site" content="@focusmusicfm">
+    <!-- <meta property="fb:app_id" content="your_app_id" /> -->
+
+  <body>
+    <div class="overlay overlay-track-info track-info" style="display: none;">
+      <div class="container">
+        
+        <div class="now-playing">
+          <i class="fa fa-play" aria-hidden="true"></i><br/>
+        </div>
+        
+
+        <div class="track-title"></div>
+        <div class="artist"></div>
+
+        <div class="permalink">
+          <a href="#" rel="nofollow" target="_blank">
+            <i class="fa fa-external-link" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="overlay overlay-channel-picker channel-picker" style="display: none;">
+      <div class="channel-picker-title">
+        <i class="fa fa-headphones" aria-hidden="true"></i><br/>
+      </div>
+
+      <div class="channel electronic active" attr-channel="electronic">electronic</div>
+      <div class="channel downtempo" attr-channel="downtempo">downtempo</div>
+      <div class="channel classical" attr-channel="classical">classical</div>
+      <div class="channel rain" attr-channel="rain">rain</div>
+    </div>
+
+    <div class="overlay overlay-donate" style="display: none;">
+      <div class="container">
+        <div class="main">
+          <i class="fa fa-heart" aria-hidden="true"></i><br/>
+          if you love focusmusic.fm, please consider donating<br/>
+          to help cover our server costs and keep the site ad-free
+        </div>
+ 
+        <div class="btn-donate-wrapper">
+          <a class="btn btn-donate" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5VMUY3QEVGBBN" target="_blank">
+            <i class="fa fa-paypal" aria-hidden="true"></i>
+            donate
+          </a>
+        </div>
+      </div>
+    </div>
+   
+    <div class="site-container">
+      <div class="site-wrapper">
+        <div style="float:left;">
+        <h1>
+          focusmusic.fm
+        </h1>
+
+        <h2>
+          beats for work, productivity, flow
+        </h2>
+
+       <div class="player noselect">
+        <audio preload="auto"></audio>
+        <i class="fa controls previous fa-fast-backward" aria-hidden="true"></i>
+
+        <i class="fa play-pause fa-play-circle" aria-hidden="true"></i>
+        <i class="fa play-pause fa-pause-circle hidden" aria-hidden="true"></i>
+        <i class="fa spinner fa-circle-o-notch fa-spin fa-3x fa-fw hidden"></i>
+
+        <i class="fa controls next fa-fast-forward" aria-hidden="true"></i>
+
+        <div class="error-message hidden"></div>
+      </div>
+
+
+      <div class="footer noselect">
+        <div class="footer-controls footer-controls-1">
+          <div>
+            <div class="btn btn-channels btn-worded">
+              channels
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-controls footer-controls-2">
+          <div class="volume">
+            <div class="btn btn-volume-down">
+              <i class="fa fa-volume-down" aria-hidden="true"></i>
+            </div>
+            <div class="btn btn-volume-up">
+              <i class="fa fa-volume-up" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div>
+          </div>
+        </div>
+
+        <div class="footer-controls footer-controls-3">
+          <div>
+            <div class="btn btn-now-playing btn-worded">
+             track info 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer footer-center noselect">
+      <div>
+        <div class="btn btn-donate btn-worded">
+         donate 
+        </div>
+      </div>
+      <div>
+        <a class="btn btn-twitter twitter" href="https://twitter.com/focusmusicfm" target="_blank">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a class="btn btn-iOS iOS" href="https://itunes.apple.com/us/app/focusmusic.fm/id1170845754" target="_blank">
+          <i class="fa fa-apple" aria-hidden="true"></i>
+        </a>
+        <a class="btn btn-alexa alexa" href="https://www.amazon.com/dp/B06VV2PMJ7" target="_blank">
+          <i class="fa fa-amazon" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- audio.js -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/audiojs/1.0.1/audio.min.js" integrity="sha256-0jcTJ71rMXZVI405U/k6YSuuJpfZTfmBAibQ7EnUni4=" crossorigin="anonymous"></script>
+
+  <!-- app.js -->
+  <script src="/static/js/app.js"></script>
+
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-83970350-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+  </body>
+</html>

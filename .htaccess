@@ -1,0 +1,12 @@
+RewriteCond %{HTTP_HOST} ^www\.(.+) [NC]
+RewriteRule ^(.*) https://%1/$1 [R=301,NE,L]
+
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+IndexIgnore *
+
+Redirect 301 /donate https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5VMUY3QEVGBBN
+
+# Legacy; keep until iOS and android apps are updated 
+Redirect permanent /track.php /api/tracks.php
