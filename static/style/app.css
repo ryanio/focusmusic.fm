@@ -175,11 +175,16 @@ h3 {
 }
 
 .overlay .main {
-  font-size: 18px;
-  line-height: 40px;
+  font-size: 16px;
+  line-height: 30px;
   margin-bottom: 18px;
   color: #fff;
   font-weight: 300;
+  max-width: 500px;
+}
+
+.overlay .main a {
+  color: #fff;
 }
 
 .overlay .title:hover,
@@ -215,10 +220,10 @@ h3 {
 
 .overlay-donate a.btn-donate .fa {
   color: #307fe2;
-  padding-right: 9px;
-  padding-left: 4px;
-  margin-right: 4px;
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  padding-left: 9px;
+  padding-right: 4px;
+  margin-left: 4px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .overlay-donate a.btn-donate:hover .fa {
