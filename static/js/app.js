@@ -51,6 +51,7 @@ $(function() {
       },
 
       loadStarted: function() {
+        $('.error-message').addClass('hidden');
         // $('.spinner').addClass('hidden');
       },
 
