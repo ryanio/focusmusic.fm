@@ -228,7 +228,7 @@ $(function() {
 
     $('.overlay').on('click', function(event) {
         var target = $(event.target);
-        if (target.is('a')) {
+        if (target.is('a') || target.is('.donate-crypto')) {
             return;
         }
 
