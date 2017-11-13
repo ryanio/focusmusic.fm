@@ -26,7 +26,7 @@ $(function() {
         if (tracks.length == 0) {
             // Pause and wait for first track data to load
             audio.pause();
-            $('.spinner').removeClass('hidden');
+            //$('.spinner').removeClass('hidden');
             setTimeout(function() { audio.play(); }, 1000);
             return;
         }
@@ -47,12 +47,12 @@ $(function() {
       },
 
       init: function() {
-        // $('.spinner').removeClass('hidden');
+        //$('.spinner').removeClass('hidden');
       },
 
       loadStarted: function() {
         $('.error-message').addClass('hidden');
-        // $('.spinner').addClass('hidden');
+        //$('.spinner').addClass('hidden');
       },
 
       loadProgress: function(percent) {
