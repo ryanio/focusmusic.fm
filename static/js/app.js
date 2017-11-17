@@ -228,7 +228,7 @@ $(function() {
 
     $('.overlay').on('click', function(event) {
         var target = $(event.target);
-        if (target.is('a') || target.is('.donate-crypto')) {
+        if (target.is('a') || target.is('.donate-crypto-addresses')) {
             return;
         }
 
@@ -300,6 +300,11 @@ $(function() {
 
     $('a.btn-donate').on('click', function() {
         ga('send', 'event', 'donate', 'click donate button');
+    });
+
+    $('a.btn-donate-crypto').on('click', function() {
+        $('.donate-crypto-addresses').slideToggle();
+        ga('send', 'event', 'links', 'click donate crypto button');
     });
 
     $('a.twitter').on('click', function() {
