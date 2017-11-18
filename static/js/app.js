@@ -315,6 +315,10 @@ $(function() {
         ga('send', 'event', 'links', 'click iOS');
     });
 
+    $('a.android').on('click', function() {
+        ga('send', 'event', 'links', 'click android');
+    });
+
     $('a.alexa').on('click', function() {
         ga('send', 'event', 'links', 'click alexa');
     });
