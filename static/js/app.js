@@ -176,7 +176,7 @@ $(function() {
 
         beep();
 
-        volume = volume * 1.2;
+        volume += .05;
 
         audio.setVolume(volume);
         console.log(volume);
@@ -191,7 +191,7 @@ $(function() {
 
         beep();
 
-        volume = volume * 0.8;
+        volume -= .05
 
         audio.setVolume(volume);
         console.log(volume);
