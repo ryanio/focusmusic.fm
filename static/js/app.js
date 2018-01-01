@@ -79,19 +79,31 @@ $(function() {
     Functions
 
     ============================================= */
+    function errorBeep() {
+        //only offset the beep volume if the volume is below 10%
+        if (volume <= 0.1) {
+            //300 hertz for .025 seconds, adding 10% to volume (because it is set very low)
+            beepAtFrequencyForTime(300, 0.025, 0.1);//we have to add some to the volume here otherwise it will play at zero volume and be inaudible.
+        } else {
+            beepAtFrequencyForTime(300, 0.025, 0);
+        }
+    }
 
-    function beep() {
+    function beep() {beepAtFrequencyForTime(5555, 0.025, 0);}
+
+//volumeOffset is a quick and dirty hack. there is most likely a better solution out there.
+    function beepAtFrequencyForTime(frequency, time, volumeOffset) {
         // the beep! <3 thx musicforprogramming.net
         if(!context) return; // web audio not supported
         oscillator = context.createOscillator();
         oscillator.type = "square";
-        oscillator.frequency.value = 5555;
+        oscillator.frequency.value = frequency;
         gainNode = context.createGain()
-        gainNode.gain.value = volume*0.1;
+        gainNode.gain.value = volume*0.1+volumeOffset;
         oscillator.connect(gainNode);
         gainNode.connect(context.destination);
         oscillator.start(context.currentTime);
-        oscillator.stop(context.currentTime + 0.025);
+        oscillator.stop(context.currentTime + time);
     }
 
     function playNext(skip) {
@@ -171,6 +183,7 @@ $(function() {
 
     function increaseVolume() {
         if (volume >= 1) {
+            errorBeep();
             return;
         }
 
@@ -185,7 +198,9 @@ $(function() {
     }
 
     function decreaseVolume() {
-        if (volume <= 0) {
+        //something lower than the lowest possible volume but high enough to catch rounding errors.
+        if (volume <= 0.0001) {
+            errorBeep();
             return;
         }
 
