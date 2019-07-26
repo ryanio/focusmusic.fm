@@ -143,7 +143,7 @@ h3 {
 
 }
 
-.audiojs { 
+.audiojs {
   display: none;
 }
 
@@ -348,10 +348,16 @@ a.btn-donate-crypto {
   padding: 0;
 }
 
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
 .footer-controls {
-  width: 33%;
-  float: left;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-left {
@@ -369,16 +375,24 @@ a.btn-donate-crypto {
 }
 
 .footer .btn {
-  padding: 3px;
+  padding: 8px;
+  margin: 8px;
   cursor: pointer;
 }
 
-.footer .btn-alexa {
-  font-size: 12px;
+.footer-icon {
+  margin-top: 40px
+}
+
+
+.footer .btn-worded, .footer .btn-volume {
+  color: #000;
+  background: #efefef;
+  border-radius: 5px;
 }
 
 .footer .btn-worded {
-  color: #000;
+  min-width: 75px
 }
 
 .footer .btn-worded:hover {
@@ -388,6 +402,13 @@ a.btn-donate-crypto {
 .footer .btn:hover {
   color: #000;
 }
+
+
+.footer-center .btn {
+  display: inline-block;
+  margin: 1em 0.25em 1.25em 0.25em;
+}
+
 
 .footer a {
   color: #555;
@@ -400,14 +421,9 @@ a.btn-donate-crypto {
   }
 }
 
-.footer .btn-volume-up,
-.footer .btn-volume-down {
-  display: inline-block;
-}
-
-.footer .btn-donate {
-  display: inline-block;
-  margin: 1em 0 1.25em 0;
+.footer .btn-volume {
+  width: 20px;
+  float: left;
 }
 
 .footer .fa {
@@ -418,4 +434,8 @@ a.btn-donate-crypto {
 .footer a:hover .fa,
 .footer .btn:hover .fa {
   color: #000;
+}
+
+.footer .btn-alexa {
+  font-size: 12px;
 }

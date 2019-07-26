@@ -1,4 +1,4 @@
-$(function() { 
+$(function() {
 
     /* =============================================
 
@@ -35,7 +35,7 @@ $(function() {
         $('.fa-play-circle').addClass('hidden');
         $('.fa-pause-circle').removeClass('hidden');
 
-        // Update track info 
+        // Update track info
         updateTrackInfo();
       },
 
@@ -70,7 +70,7 @@ $(function() {
 
     var audio = a[0];
     audio.setVolume(volume);
-    
+
     // Load in the first track
     getNextTrack();
 
@@ -131,7 +131,7 @@ $(function() {
         trackNumber--;
 
         if (trackNumber < 0) trackNumber = 0;
-        
+
         audio.load(tracks[trackNumber]['url']);
         audio.play();
 
@@ -212,6 +212,18 @@ $(function() {
         console.log(volume);
 
         ga('send', 'event', 'volume', 'decrease', volume);
+    }
+
+    function toggleNightMode() {
+      $('html').toggleClass('night-mode');
+
+      if ($('html').hasClass('night-mode')) {
+        $('.btn-toggle-night-mode').html('day mode')
+        ga('send', 'event', 'night mode', 'enable', null);
+      } else {
+        $('.btn-toggle-night-mode').html('night mode')
+        ga('send', 'event', 'night mode', 'disable', null);
+      }
     }
 
    /* =============================================
@@ -308,6 +320,10 @@ $(function() {
         ga('send', 'event', 'channel', 'change', selectedChannel);
     });
 
+    $('.btn-toggle-night-mode').on('click', function() {
+      toggleNightMode();
+    });
+
     $('.btn-donate').on('click', function() {
         $('.overlay-donate').fadeIn(200);
         ga('send', 'event', 'donate', 'view modal');
@@ -339,7 +355,7 @@ $(function() {
     });
 
     /* =============================================
-    
+
     Keyboard shortcuts
 
     ============================================= */
@@ -381,7 +397,7 @@ $(function() {
 
       } else if (unicode == 73 || unicode == 84) {
         // track info
-        // 73: i 
+        // 73: i
         // 84: t
 
         $('.track-info').fadeToggle(200, function() {
@@ -413,13 +429,7 @@ $(function() {
         // 68: d
         // 78: n
 
-        $('html').toggleClass('night-mode');
-
-        if ($('html').hasClass('night-mode')) {
-            ga('send', 'event', 'night mode', 'enable', null);
-        } else {
-            ga('send', 'event', 'night mode', 'disable', null);
-        }
+        toggleNightMode();
      }
     });
 });
