@@ -11,7 +11,9 @@ $(function() {
     var tracks = [];
     var offset = 0;
     var timestamp = Date.now();
-    var selectedChannel = 'electronic';
+    var CHANNEL_KEY = 'channel';
+    var THEME_KEY = 'theme';
+    var selectedChannel = readFromLocalStorage(CHANNEL_KEY) || 'electronic';
     var autoplayNextTrack = false;
     var volume = 0.5;
 
@@ -73,6 +75,7 @@ $(function() {
 
     // Load in the first track
     getNextTrack();
+    setInitialTheme();
 
     /* =============================================
 
@@ -220,10 +223,37 @@ $(function() {
       if ($('html').hasClass('night-mode')) {
         $('.btn-toggle-night-mode').html('day mode')
         ga('send', 'event', 'night mode', 'enable', null);
+        saveToLocalStorage(THEME_KEY, 'night-mode');
       } else {
         $('.btn-toggle-night-mode').html('night mode')
         ga('send', 'event', 'night mode', 'disable', null);
+        remvoeFromLocalStorage(THEME_KEY);
       }
+    }
+    function hasLocalStorage() { 
+       return typeof window.localStorage === 'object' && typeof window.localStorage.setItem === 'function';
+    }
+
+    function saveToLocalStorage(key, value) {
+        if(!hasLocalStorage()) return;
+        window.localStorage.setItem(key, value);
+    }
+
+    function readFromLocalStorage(key ) {
+        if(!hasLocalStorage()) return;
+        return window.localStorage.getItem(key)
+    }
+
+    function remvoeFromLocalStorage(key ) {
+        if(!hasLocalStorage()) return;
+        return window.localStorage.removeItem(key)
+    }
+    function setInitialTheme() {
+        var theme = readFromLocalStorage(THEME_KEY);
+        if(theme === "night-mode") {
+            $('html').addClass('night-mode');
+            $('.btn-toggle-night-mode').html('night mode')
+        }
     }
 
    /* =============================================
@@ -307,6 +337,7 @@ $(function() {
         $(this).addClass('active');
 
         selectedChannel = channel;
+        saveToLocalStorage(CHANNEL_KEY, channel);
 
         // reset
         tracks = [];
