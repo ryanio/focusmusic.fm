@@ -227,7 +227,7 @@ $(function() {
       } else {
         $('.btn-toggle-night-mode').html('night mode')
         ga('send', 'event', 'night mode', 'disable', null);
-        remvoeFromLocalStorage(THEME_KEY);
+        removeFromLocalStorage(THEME_KEY);
       }
     }
     function hasLocalStorage() { 
@@ -244,7 +244,7 @@ $(function() {
         return window.localStorage.getItem(key)
     }
 
-    function remvoeFromLocalStorage(key ) {
+    function removeFromLocalStorage(key ) {
         if(!hasLocalStorage()) return;
         return window.localStorage.removeItem(key)
     }
