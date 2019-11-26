@@ -221,14 +221,13 @@ $(function() {
       $('html').toggleClass('night-mode');
 
       if ($('html').hasClass('night-mode')) {
-        $('.btn-toggle-night-mode').html('day mode')
         ga('send', 'event', 'night mode', 'enable', null);
         saveToLocalStorage(THEME_KEY, 'night-mode');
       } else {
-        $('.btn-toggle-night-mode').html('night mode')
         ga('send', 'event', 'night mode', 'disable', null);
         removeFromLocalStorage(THEME_KEY);
       }
+      $('.btn-toggle-night-mode').find('i').toggleClass('fa-sun-o').toggleClass('fa-moon-o');
     }
     function hasLocalStorage() { 
        return typeof window.localStorage === 'object' && typeof window.localStorage.setItem === 'function';
@@ -252,7 +251,7 @@ $(function() {
         var theme = readFromLocalStorage(THEME_KEY);
         if(theme === "night-mode") {
             $('html').addClass('night-mode');
-            $('.btn-toggle-night-mode').html('night mode')
+            $('.btn-toggle-night-mode').find('i').toggleClass('fa-sun-o').toggleClass('fa-moon-o');
         }
     }
 
@@ -353,6 +352,10 @@ $(function() {
 
     $('.btn-toggle-night-mode').on('click', function() {
       toggleNightMode();
+    });
+
+    $('.btn-show-keyboard-shortcuts').on('click', function() {
+        $('.overlay-keyboard-shortcuts').fadeIn(200);
     });
 
     $('.btn-donate').on('click', function() {

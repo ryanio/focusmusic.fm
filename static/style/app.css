@@ -331,6 +331,16 @@ a.btn-donate-crypto {
   margin-bottom: 0;
 }
 
+/* 
+    Keyboard Shortcuts
+*/
+
+.overlay-keyboard-shortcuts .keyboard-shortcuts-title {
+  margin-bottom: 15px;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.95);
+}
+
 /*
     Footer
 */
@@ -385,7 +395,7 @@ a.btn-donate-crypto {
 }
 
 
-.footer .btn-worded, .footer .btn-volume {
+.footer .btn-worded, .footer .btn-volume, .footer .btn-toggle-night-mode, .footer .btn-show-keyboard-shortcuts {
   color: #000;
   background: #efefef;
   border-radius: 5px;
@@ -421,9 +431,13 @@ a.btn-donate-crypto {
   }
 }
 
-.footer .btn-volume {
+.footer .btn-volume, .footer .btn-toggle-night-mode, .footer .btn-show-keyboard-shortcuts {
   width: 20px;
   float: left;
+}
+
+.btn-toggle-night-mode i, .btn-show-keyboard-shortcuts i {
+  display: inline;
 }
 
 .footer .fa {
