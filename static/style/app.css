@@ -341,15 +341,24 @@ a.btn-donate-crypto {
   color: rgba(255, 255, 255, 0.95);
 }
 
-table,
-td {
-  border: 1px solid #fff;
+table {
   border-collapse: collapse;
-  padding: .5em 1em;
+  margin: 1em;
+}
+
+td,
+th {
+  border: 1px solid;
+  padding: .75em 1em;
 }
 
 td.key {
   font-weight: bolder;
+  text-align: right;
+}
+
+td.action {
+  text-align: left;
 }
 
 /*
