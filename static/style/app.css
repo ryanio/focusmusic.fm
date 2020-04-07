@@ -335,29 +335,37 @@ a.btn-donate-crypto {
     Keyboard Shortcuts
 */
 
-.overlay-keyboard-shortcuts .keyboard-shortcuts-title {
-  margin-bottom: 15px;
+.keyboard-shortcuts-title {
+  margin-bottom: 10px;
   font-size: 24px;
   color: rgba(255, 255, 255, 0.95);
 }
 
-table {
+.keyboard-shortcuts-title i {
+  margin-right: 5px;
+}
+
+table.keyboard-shortcuts {
   border-collapse: collapse;
   margin: 1em;
 }
 
-td,
-th {
-  border: 1px solid;
+table.keyboard-shortcuts td,
+table.keyboard-shortcuts th {
+  border: 1px solid grey;
   padding: .75em 1em;
 }
 
-td.key {
+table.keyboard-shortcuts th {
+  color: #ccc;
+}
+
+table.keyboard-shortcuts td.key {
   font-weight: bolder;
   text-align: right;
 }
 
-td.action {
+table.keyboard-shortcuts td.action {
   text-align: left;
 }
 
