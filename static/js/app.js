@@ -13,9 +13,10 @@ $(function() {
     var timestamp = Date.now();
     var CHANNEL_KEY = 'channel';
     var THEME_KEY = 'theme';
+    var VOLUME_KEY = 'volume';
     var selectedChannel = readFromLocalStorage(CHANNEL_KEY) || 'electronic';
     var autoplayNextTrack = false;
-    var volume = 0.5;
+    var volume = parseFloat(readFromLocalStorage(VOLUME_KEY)) || 0.5;
 
     // Init vars for beep()
     var context = new(window.AudioContext || window.webkitAudioContext || false);
@@ -195,6 +196,7 @@ $(function() {
         volume += .05;
 
         audio.setVolume(volume);
+        saveToLocalStorage(VOLUME_KEY, volume);
         console.log(volume);
 
         ga('send', 'event', 'volume', 'increase', volume);
@@ -212,6 +214,7 @@ $(function() {
         volume -= .05
 
         audio.setVolume(volume);
+        saveToLocalStorage(VOLUME_KEY, volume);
         console.log(volume);
 
         ga('send', 'event', 'volume', 'decrease', volume);
