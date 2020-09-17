@@ -197,13 +197,11 @@ $(function() {
 
         audio.setVolume(volume);
         saveToLocalStorage(VOLUME_KEY, volume);
-        console.log(volume);
-
-        ga('send', 'event', 'volume', 'increase', volume);
+        console.log(`New volume: ${volume}`);
     }
 
     function decreaseVolume() {
-        //something lower than the lowest possible volume but high enough to catch rounding errors.
+        // something lower than the lowest possible volume but high enough to catch rounding errors.
         if (volume <= 0.0001) {
             errorBeep();
             return;
@@ -215,9 +213,7 @@ $(function() {
 
         audio.setVolume(volume);
         saveToLocalStorage(VOLUME_KEY, volume);
-        console.log(volume);
-
-        ga('send', 'event', 'volume', 'decrease', volume);
+        console.log(`New volume: ${volume}`);
     }
 
     function toggleNightMode() {
