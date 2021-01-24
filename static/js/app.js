@@ -40,6 +40,11 @@ $(function() {
 
         // Update track info
         updateTrackInfo();
+
+        // Update MediaSession
+        if (hasMediaSession()) {
+            navigator.mediaSession.playbackState = "playing";
+        }
       },
 
       pause: function() {
@@ -47,6 +52,10 @@ $(function() {
         $('.fa-pause-circle').addClass('hidden');
         $('.fa-play-circle').removeClass('hidden');
 
+        // Update MediaSession
+        if (hasMediaSession()) {
+            navigator.mediaSession.playbackState = "paused";
+        }
       },
 
       init: function() {
@@ -68,6 +77,11 @@ $(function() {
       loadError: function() {
         $('.error-message').text('error loading :(');
         $('.error-message').removeClass('hidden');
+
+        // Update MediaSession
+        if (hasMediaSession()) {
+            navigator.mediaSession.playbackState = "none";
+        }
       }
     });
 
@@ -95,7 +109,7 @@ $(function() {
 
     function beep() {beepAtFrequencyForTime(5555, 0.025, 0);}
 
-//volumeOffset is a quick and dirty hack. there is most likely a better solution out there.
+    //volumeOffset is a quick and dirty hack. there is most likely a better solution out there.
     function beepAtFrequencyForTime(frequency, time, volumeOffset) {
         // the beep! <3 thx musicforprogramming.net
         if(!context) return; // web audio not supported
@@ -143,7 +157,7 @@ $(function() {
     }
 
     function getNextTrack() {
-        $.getJSON( "api/tracks.php",  {
+        $.getJSON("api/tracks.php",  {
             offset: offset,
             timestamp: timestamp,
             channel: selectedChannel
@@ -182,6 +196,14 @@ $(function() {
             $('.permalink').hide();
         } else {
             $('permalink').show();
+        }
+
+        // Update MediaSession
+        if (hasMediaSession()) {
+            navigator.mediaSession.metadata = new MediaMetadata({
+                title: track['title'],
+                artist: track['artist']
+            });
         }
     }
 
@@ -252,6 +274,9 @@ $(function() {
             $('html').addClass('night-mode');
             $('.btn-toggle-night-mode').find('i').toggleClass('fa-sun-o').toggleClass('fa-moon-o');
         }
+    }
+    function hasMediaSession() {
+        return "mediaSession" in window.navigator && typeof window.navigator.mediaSession === 'object';
     }
 
    /* =============================================
@@ -465,4 +490,43 @@ $(function() {
         toggleNightMode();
      }
     });
+
+    /* =============================================
+
+    Media keys
+
+    ============================================= */
+
+    if (hasMediaSession()) {
+        var actionHandlers = [
+            ['play', function() {
+                audio.playPause();
+                beep();
+            }],
+            ['pause', function() {
+                audio.playPause();
+                beep();
+            }],
+            ['previoustrack', function() {
+                playPrevious();
+                beep();
+            }],
+            ['nexttrack', function() {
+                playNext(true);
+                beep();
+            }],
+            ['stop', function() {
+                audio.playPause();
+                beep();
+            }],
+        ];
+
+        for (var [action, handler] of actionHandlers) {
+            try {
+                window.navigator.mediaSession.setActionHandler(action, handler);
+            } catch (error) {
+                //console.warn(`The media session action "${action}" is not supported.`);
+            }
+        }
+    }
 });
