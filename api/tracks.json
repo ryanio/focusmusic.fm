@@ -1,0 +1,34 @@
+{
+  "electronic": [
+    {
+      "title": "Title",
+      "artist": "Name",
+      "url": "https://link.to/file.mp3",
+      "permalink": "https://link.to/artist"
+    }
+  ],
+  "downtempo": [
+    {
+      "title": "Title",
+      "artist": "Name",
+      "url": "https://link.to/file.mp3",
+      "permalink": "https://link.to/artist"
+    }
+  ],
+  "classical": [
+    {
+      "title": "Title",
+      "artist": "Name",
+      "url": "https://link.to/file.mp3",
+      "permalink": "https://link.to/artist"
+    }
+  ],
+  "rain": [
+    {
+      "title": "Title",
+      "artist": "Name",
+      "url": "https://link.to/file.mp3",
+      "permalink": "https://link.to/artist"
+    }
+  ]
+}
